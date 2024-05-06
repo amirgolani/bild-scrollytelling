@@ -19,6 +19,16 @@
         linear-gradient(90deg, rgba(255, 255, 255, .06) 1px, transparent 1px);
       background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
       background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+      height: 2160px;
+      padding: 0px;
+      margin: 0px;
+    }
+
+    .first-hero {
+      height: 100%;
+      background-color: #28a92b;
+      padding: 0px;
+      margin: 0px;
     }
 
     .box {
@@ -43,7 +53,7 @@
     }
 
     .c {
-      top: 1000px;
+      top: 800px;
       background-color: #e26c16;
     }
 
@@ -66,7 +76,7 @@
 
 <body>
 
-
+  <!-- <div class="first-hero">h</div> -->
   <div class="box a">a</div>
   <div class="box b">b</div>
   <!-- <div class="box ghost">c</div> -->
@@ -81,11 +91,27 @@
 
     // You can use a ScrollTrigger in a tween or timeline
     gsap.to(".b", {
-      x: 400,
-      rotation: 360,
+      x: 100,
+      rotation: 90,
+      ease: 'ease1.in',
       scrollTrigger: {
         trigger: ".b",
-        start: "top 80%",
+        start: "top 50%",
+        end: "top 20%",
+        scrub: true,
+        markers: true,
+        id: "scrub"
+      }
+    });
+
+    // You can use a ScrollTrigger in a tween or timeline
+    gsap.to(".c", {
+      x: 100,
+      rotation: 90,
+      ease: 'ease1.in',
+      scrollTrigger: {
+        trigger: ".c",
+        start: "top 50%",
         end: "top 20%",
         scrub: true,
         markers: true,
@@ -95,11 +121,11 @@
 
 
     // Or you can attach a tween or timeline to a ScrollTrigger later
-    const anim = gsap.to(".c", {
-      x: 400,
-      rotation: 360,
-      duration: 3
-    });
+    // const anim = gsap.to(".c", {
+    //   x: 400,
+    //   rotation: 360,
+    //   duration: 3
+    // });
 
     // ScrollTrigger.create({
     //   trigger: ".c",
