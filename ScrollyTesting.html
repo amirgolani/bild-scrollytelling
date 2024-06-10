@@ -10,7 +10,7 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GSAP Scroll Animation</title>
+  <title>Badesee</title>
   <style>
     .box.active {
       background-color: blue;
@@ -28,15 +28,10 @@
       height: 5160px;
       width: 700px;
       padding: 0px;
-      padding-bottom: 500px;
+      /* padding-bottom: 500px; */
       margin: 0px;
-    }
-
-    .first-hero {
-      height: 100%;
-      background-color: #28a92b;
-      padding: 0px;
-      margin: 0px;
+      /* overflow: hidden; */
+      /* text-align: center; */
     }
 
     .box {
@@ -52,31 +47,19 @@
     }
 
     .a {
-      top: 200px;
-      background-color: #8d3dae;
+      top: 1516px;
+      opacity: 0;
     }
 
     .b {
-      top: 1600px;
       opacity: 0;
-      scale: 1;
-    }
-
-    .c {
-      top: 3200px;
-      background-color: #e26c16;
-    }
-
-    .ghost {
-      top: 1000px;
-      background-color: #444;
     }
 
     .line {
       width: 2px;
       height: 3000px;
       position: absolute;
-      left: 600px;
+      left: 700px;
       top: 0px;
       /*   visibility: hidden; */
       background-color: #777;
@@ -86,53 +69,63 @@
 
 <body>
 
-  <!-- <div class="first-hero">h</div> -->
+  <!-- <div class="box a">a</div> -->
   <div class="box a">a</div>
-  <div class="box b">b</div>
   <!-- <div class="box ghost">c</div> -->
-  <div class="box c">c</div>
+  <!-- <div class="box c">c</div> -->
+  <div id="beachScene" style="background-image: url('/assets/Scene-1-Background.jpg'); 
+    background-position: center; 
+    background-size: cover; 
+    position: fixed;
+    top: 0px;
+    width: 700px; height: 1516px;">
+    <img src="/assets/Scene-2-to-3-Background.jpg" style="position: absolute; top: -826px; scale: .25;" alt="">
+  </div>
+  <!-- <img id="beachScene" src="/assets/Scene-1-Background.jpg" style="position: fixed; width: 700px; height: 1516px; object-fit: cover;"> -->
 
+  <!-- </div> -->
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 
-  
+
   <script>
     // For more information, see greensock.com/docs/v3/Plugins/ScrollTrigger
     gsap.registerPlugin(ScrollTrigger);
 
+    const beachScene = document.getElementById('beachScene');
+
     // You can use a ScrollTrigger in a tween or timeline
-    gsap.to(".b", {
-      x: 100,
-      rotation: 90,
-      opacity: 1,
-      scale: 1.3,
+    gsap.to(beachScene, {
+      // height: 3600,
+      scale: 4,
+      // top: -1000,
       ease: 'ease4.inOut',
       scrollTrigger: {
-        trigger: ".b",
+        trigger: ".a",
         start: "top 90%",
-        end: "top 50%",
-        scrub: true,
+        end: "top 10%",
+        scrub: .4,
         // markers: true,
-        id: "scrub"
+        // id: "scrub"
       }
     });
 
-    // You can use a ScrollTrigger in a tween or timeline
-    gsap.to(".c", {
-      x: 100,
-      rotation: 90,
-      ease: 'ease4.inOut',
-      scrollTrigger: {
-        trigger: ".c",
-        start: "top 50%",
-        // end: "top 20%",
-        scrub: true,
-        markers: true,
-        id: "scrub"
-      }
-    });
+    // // You can use a ScrollTrigger in a tween or timeline
+    // gsap.to(".c", {
+    //   x: 100,
+    //   rotation: 90,
+    //   ease: 'ease4.inOut',
+    //   scrollTrigger: {
+    //     trigger: ".c",
+    //     start: "top 50%",
+    //     // end: "top 20%",
+    //     scrub: true,
+    //     markers: true,
+    //     id: "scrub"
+    //   }
+    // });
 
 
   </script>
