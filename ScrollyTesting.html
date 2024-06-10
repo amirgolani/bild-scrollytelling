@@ -12,10 +12,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Badesee</title>
   <style>
-    .box.active {
-      background-color: blue;
-    }
-
     body {
       background-color: #111;
       background-image:
@@ -52,6 +48,7 @@
     }
 
     .b {
+      top: 3032px;
       opacity: 0;
     }
 
@@ -69,21 +66,54 @@
 
 <body>
 
-  <!-- <div class="box a">a</div> -->
   <div class="box a">a</div>
-  <!-- <div class="box ghost">c</div> -->
-  <!-- <div class="box c">c</div> -->
-  <div id="beachScene" style="background-image: url('/assets/Scene-1-Background.jpg'); 
+  <div class="box b">b</div>
+  <div id="beachScene" style="background-image: url('/assets/Scene-1/Scene-1-Background.jpg'); 
     background-position: center; 
     background-size: cover; 
     position: fixed;
     top: 0px;
     width: 700px; height: 1516px;">
-    <img src="/assets/Scene-2-to-3-Background.jpg" style="position: absolute; top: -826px; scale: .25;" alt="">
+    <img src="/assets/Scene-2/Scene-2-to-3-Background.jpg" style="position: absolute; top: -826px; scale: .25;" alt="">
+    <div id="chartOneQ"
+      style="position: absolute; opacity: 0; top: 826px; left: -10px; width: 100%; height: 100%; text-align: center; color: white; font-size: 8px; font-family: Gotham XNarrow; font-weight: 700; line-height: 12px; word-wrap: break-word">
+      Freuen Sie sich bei einem <br> Seebesuch aufs Schwimmen<br> und Planschen?
+    </div>
+    <div id="chartOneAns"
+      style="position: absolute; opacity: 0; top: 890px; left: -60px; width: 100%; height: 100%; text-align: center; color: white; font-size: 10px; font-family: Gotham XNarrow; font-weight: 700; line-height: 12px; word-wrap: break-word">
+      45 %<br>nein
+    </div>
+    <div id="chartOneAns"
+      style="position: absolute; opacity: 0; top: 890px; left: 36px; width: 100%; height: 100%; text-align: center; color: white; font-size: 10px; font-family: Gotham XNarrow; font-weight: 700; line-height: 12px; word-wrap: break-word">
+      55 %<br>ja
+    </div>
+    <div id="chartTwoQ"
+      style="position: absolute; opacity: 0; top: 950px; left: 10px; width: 100%; height: 100%; text-align: center; color: white; font-size: 8px; font-family: Gotham XNarrow; font-weight: 700; line-height: 12px; word-wrap: break-word">
+      Stören Sie Müll, Scherben <br> oder Zigarettenstummel beim <br> Badeausflug?
+    </div>
+    <div id="chartTwoAns"
+      style="position: absolute; opacity: 0; top: 1010px; left: -44px; width: 100%; height: 100%; text-align: center; color: white; font-size: 10px; font-family: Gotham XNarrow; font-weight: 700; line-height: 12px; word-wrap: break-word">
+      52 %<br>nein
+    </div>
+    <div id="chartTwoAns"
+      style="position: absolute; opacity: 0; top: 1010px; left: 54px; width: 100%; height: 100%; text-align: center; color: white; font-size: 10px; font-family: Gotham XNarrow; font-weight: 700; line-height: 12px; word-wrap: break-word">
+      48 %<br>ja
+    </div>
+    <div
+      style="position: absolute; top: 750px; left: 190px; scale: .25; filter: drop-shadow( 30px 30px 10px rgba(0, 0, 0, 0.55))">
+      <img id="chartOne" src="/assets/Scene-2/Scene-2-Parasol-Chart-1.png"
+        style="position: absolute; top: 450px; left: 440px;" alt="">
+      <img id="chartTwo" src="/assets/Scene-2/Scene-2-Parasol-Chart-2.png"
+        style="position: absolute; top: 950px; left: 510px;" alt="">
+    </div>
   </div>
-  <!-- <img id="beachScene" src="/assets/Scene-1-Background.jpg" style="position: fixed; width: 700px; height: 1516px; object-fit: cover;"> -->
+  <div
+    style="width: 700px; height: 54px; left: 0px; top: 50px; position: absolute; text-align: center; color: white; font-size: 46px; font-family: Gotham XNarrow; font-weight: 700; line-height: 46px; word-wrap: break-word">
+    <br>
+    Scrollen Sie sich durch den See <br> <br><img src="/assets/Group 10.svg" width="100px" style="z-index: 200px;"
+      alt="">
+  </div>
 
-  <!-- </div> -->
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/gsap.min.js"></script>
@@ -96,37 +126,147 @@
 
     const beachScene = document.getElementById('beachScene');
 
-    // You can use a ScrollTrigger in a tween or timeline
+    const chartOne = document.getElementById('chartOne');
+    const chartOneQ = document.getElementById('chartOneQ');
+    const chartOneAnsOne = document.getElementById('chartOneAnsOne');
+    const chartOneAnsTwo = document.getElementById('chartOneAnsTwo');
+
+    const chartTwo = document.getElementById('chartTwo');
+    const chartTwoQ = document.getElementById('chartTwoQ');
+    const chartTwoAnsOne = document.getElementById('chartTwoAnsOne');
+    const chartTwoAnsTwo = document.getElementById('chartTwoAnsTwo');
+
+
+    // // BEACH SCENE
+
     gsap.to(beachScene, {
-      // height: 3600,
       scale: 4,
-      // top: -1000,
-      ease: 'ease4.inOut',
+      ease: 'ease1.inOut',
       scrollTrigger: {
         trigger: ".a",
-        start: "top 90%",
-        end: "top 10%",
+        start: "top 100%",
+        end: "top 0%",
         scrub: .4,
-        // markers: true,
-        // id: "scrub"
       }
     });
 
-    // // You can use a ScrollTrigger in a tween or timeline
-    // gsap.to(".c", {
-    //   x: 100,
-    //   rotation: 90,
-    //   ease: 'ease4.inOut',
-    //   scrollTrigger: {
-    //     trigger: ".c",
-    //     start: "top 50%",
-    //     // end: "top 20%",
-    //     scrub: true,
-    //     markers: true,
-    //     id: "scrub"
-    //   }
-    // });
+    gsap.to(beachScene, {
+      top: -700,
+      ease: 'ease1.inOut',
+      scrollTrigger: {
+        trigger: ".b",
+        start: "top 100%",
+        end: "top 50%",
+        scrub: .4,
+      }
+    });
 
+
+
+    // // CHART 1
+
+    // Umbrella 1 Rotate
+    gsap.to(chartOne, {
+      rotation: 360,
+      ease: 'ease1.inOut',
+      scrollTrigger: {
+        trigger: ".b",
+        start: "top 100%",
+        end: "top 50%",
+        scrub: .4,
+      },
+    });
+
+    // Umbrella 1 Scale
+    gsap.to(chartOne, {
+      scale: 1.2,
+      ease: 'ease1.inOut',
+      scrollTrigger: {
+        trigger: ".b",
+        start: "top 100%",
+        end: "top 70%",
+        scrub: .4,
+      },
+      yoyo: true, // Makes the animation reverse when it reaches the end
+      repeat: 1 // Ensures it goes back to the original scale
+    });
+
+    // Umbrella 1 Q Opacity
+    gsap.to(chartOneQ, {
+      opacity: 1,
+      ease: 'ease1.inOut',
+      scrollTrigger: {
+        trigger: ".b",
+        start: "top 100%",
+        end: "top 90%",
+        scrub: .4,
+      },
+    });
+
+    // Umbrella 1 Ans Opacity
+    gsap.to('#chartOneAns', {
+      opacity: 1,
+      ease: 'ease1.inOut',
+      scrollTrigger: {
+        trigger: ".b",
+        start: "top 100%",
+        end: "top 90%",
+        scrub: .4,
+      },
+    });
+
+
+    // // CHARTS 2
+
+    // Umbrella 2 Rotate
+    gsap.to(chartTwo, {
+      rotation: 360,
+      ease: 'ease1.inOut',
+      scrollTrigger: {
+        trigger: ".b",
+        start: "top 80%",
+        end: "top 30%",
+        scrub: .4,
+      }
+    });
+
+    // Umbrella 2 Scale
+    gsap.to(chartTwo, {
+      scale: 1.2,
+      ease: 'ease1.inOut',
+      scrollTrigger: {
+        trigger: ".b",
+        start: "top 80%",
+        end: "top 50%",
+        scrub: .4,
+      },
+      yoyo: true, // Makes the animation reverse when it reaches the end
+      repeat: 1 // Ensures it goes back to the original scale
+    });
+
+    // Umbrella Q 2 Opacity
+    gsap.to(chartTwoQ, {
+      opacity: 1,
+      ease: 'ease1.inOut',
+      scrollTrigger: {
+        trigger: ".b",
+        start: "top 80%",
+        end: "top 70%",
+        scrub: .4,
+      },
+    });
+
+    // Umbrella 2 Ans Opacity
+    gsap.to('#chartTwoAns', {
+      opacity: 1,
+      ease: 'ease1.inOut',
+      scrollTrigger: {
+        trigger: ".b",
+        start: "top 80%",
+        end: "top 70%",
+        scrub: .4,
+      },
+    });
 
   </script>
 </body>
